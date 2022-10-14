@@ -7,7 +7,8 @@ private:
 	std::vector<Component> m_equation;
 public:
 	Equation(std::vector<Component> equation);
-	//Equation(int* input_set);
 
-	void print_equation(std::vector<Component> equation);
+	friend std::ostream& operator<<(std::ostream& ostr, const Equation& equation);
+
+	void print_equation();
 };
