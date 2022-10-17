@@ -8,6 +8,7 @@ private:
 	std::vector<int> m_output_set;
 public:
 	Equation(std::vector<Component> equation);
+	Equation();
 	~Equation();
 
 	friend std::ostream& operator<<(std::ostream& ostr, const Equation& equation);
@@ -15,6 +16,7 @@ public:
 	void print_equation();
 	int create_output_set(int i);
 	void change_output_set(std::vector<int> set);
+	void change_equation(std::vector<Component> new_equation);
 	std::vector<int> see_output_set() { return m_output_set; }
 	void print_output_set();
 };

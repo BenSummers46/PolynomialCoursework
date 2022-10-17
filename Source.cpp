@@ -13,6 +13,17 @@ std::vector<int> generate_set(Equation equation, int start, int end) {
 }
 
 int main() {
+	Equation equation;
+	equation.print_equation();
+	equation.change_output_set(generate_set(equation, 0, 10));
+	equation.print_output_set();
+	
+	OutputSet output_set;
+	output_set.print_output_set();
+	return 0;
+}
+
+int main2() {
 	Component* c1 = new Component(2, 2);
 	Component* c2 = new Component(5, 0);
 	Component* c3 = new Component(0, 3);

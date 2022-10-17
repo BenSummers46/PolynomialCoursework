@@ -138,6 +138,7 @@
     <ClInclude Include="OutputSet.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Sequence_A.txt" />
     <Text Include="Write_output_set.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

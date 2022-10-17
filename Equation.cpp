@@ -1,10 +1,26 @@
 #include <vector>
+#include <iostream>
 #include "Equation.h"
 #include "Component.h"
 
 Equation::Equation(std::vector<Component> equation)
 {
 	m_equation = equation;
+}
+
+Equation::Equation()
+{
+	int num_of_terms, exponent, coefficient;
+	std::cout << "Please enter number of terms: ";
+	std::cin >> num_of_terms;
+	for (int i = 0; i < num_of_terms; i++) {
+		std::cout << "Please Enter a coefficient " << i+1 << ": ";
+		std::cin >> coefficient;
+		std::cout << "Please Enter an exponent " << i+1 << ": ";
+		std::cin >> exponent;
+
+		m_equation.push_back(Component(coefficient, exponent));
+	}
 }
 
 Equation::~Equation()
@@ -35,6 +51,11 @@ int Equation::create_output_set(int i)
 void Equation::change_output_set(std::vector<int> set)
 {
 	m_output_set = set;
+}
+
+void Equation::change_equation(std::vector<Component> new_equation)
+{
+	m_equation = new_equation;
 }
 
 void Equation::print_output_set()

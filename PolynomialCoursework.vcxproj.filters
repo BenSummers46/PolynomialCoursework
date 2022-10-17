@@ -43,5 +43,8 @@
     <Text Include="Write_output_set.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Sequence_A.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
