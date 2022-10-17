@@ -3,6 +3,14 @@
 #include "Component.h"
 #include "Equation.h"
 
+std::vector<int> generate_set(Equation equation, int start, int end) {
+	std::vector<int> set;
+	for (int i = start; i <= end; i++) {
+		set.push_back(equation.create_output_set(i));
+	}
+	return set;
+}
+
 int main() {
 	Component* c1 = new Component(2, 2);
 	Component* c2 = new Component(5, 0);
@@ -16,7 +24,9 @@ int main() {
 	std::cout << std::endl;
 	//c1->print_component();
 	//c2->print_component();
-	std::cout << "value of c1 at index 2: " << c1->value(2) << std::endl;
+	std::cout << "value of c1 at index 2: " << c1->value(2) << std::endl;//8
+	std::cout << "value of c2 at index 2: " << c2->value(2) << std::endl;//5
+	std::cout << "value of c3 at index 2: " << c3->value(2) << std::endl;//8
 
 	std::vector<Component> equation;
 	equation.push_back(*c1);
@@ -27,6 +37,12 @@ int main() {
 	new_equation->print_equation();
 	/*std::cout << new_equation;*/
 
+	std::vector<int> output_set = generate_set(*new_equation, 0, 10);
+	new_equation->change_output_set(output_set);
+	new_equation->print_output_set();
+
 	delete new_equation;
 	delete c1;
+	delete c2;
+	delete c3;
 }
