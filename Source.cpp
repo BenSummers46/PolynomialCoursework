@@ -2,6 +2,7 @@
 #include <vector>
 #include "Component.h"
 #include "Equation.h"
+#include "OutputSet.h"
 
 std::vector<int> generate_set(Equation equation, int start, int end) {
 	std::vector<int> set;
@@ -41,8 +42,13 @@ int main() {
 	new_equation->change_output_set(output_set);
 	new_equation->print_output_set();
 
+	OutputSet* new_set = new OutputSet(new_equation->see_output_set());
+	new_set->print_output_set();
+	new_set->print_set_to_file();
+
 	delete new_equation;
 	delete c1;
 	delete c2;
 	delete c3;
+	delete new_set;
 }

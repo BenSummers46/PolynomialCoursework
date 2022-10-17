@@ -129,11 +129,16 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Equation.cpp" />
+    <ClCompile Include="OutputSet.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="Equation.h" />
+    <ClInclude Include="OutputSet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Write_output_set.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,5 +15,6 @@ public:
 	void print_equation();
 	int create_output_set(int i);
 	void change_output_set(std::vector<int> set);
+	std::vector<int> see_output_set() { return m_output_set; }
 	void print_output_set();
 };
