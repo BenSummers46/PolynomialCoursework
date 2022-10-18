@@ -30,7 +30,6 @@ Component Component::operator-(const Component& compB)
 
 void Component::print_component()
 {
-	//std::cout << get_coefficient() << "x^" << get_exponent() << std::endl;
 	std::cout << this->m_coefficient << "x^" << this->m_exponent << std::endl;
 }
 

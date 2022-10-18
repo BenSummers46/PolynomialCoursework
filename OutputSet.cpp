@@ -14,15 +14,20 @@ OutputSet::OutputSet()
 	std::fstream file;
 	std::cout << "Please enter a filename: ";
 	std::cin >> filename;
-	file.open(filename);
-	if (!file.is_open()) {
-		std::cout << "Error opening the file" << std::endl;
-		return;
+	try {
+		file.open(filename);
+		if (!file.is_open()) {
+			std::cout << "Error opening the file" << std::endl;
+			return;
+		}
+		while (getline(file, line, ',')) {
+			m_set.push_back(std::stoi(line));
+		}
+		file.close();
 	}
-	while (getline(file, line, ',')) {
-		m_set.push_back(std::stoi(line));
+	catch (std::exception const& e) {
+		std::cout << "Error While reading from the file" << std::endl;
 	}
-	file.close();
 }
 
 OutputSet::~OutputSet()
