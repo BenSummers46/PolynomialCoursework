@@ -8,6 +8,7 @@ public:
 	OutputSet();
 	~OutputSet();
 	void change_set(std::vector<int> new_set);
+	std::vector<int> see_set() { return m_set; }
 	void print_output_set();
 	void print_set_to_file();
 private:

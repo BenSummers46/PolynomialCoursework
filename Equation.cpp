@@ -8,6 +8,10 @@ Equation::Equation(std::vector<Component> equation)
 	m_equation = equation;
 }
 
+Equation::Equation(std::vector<int> output_set) {
+	m_output_set = output_set;
+}
+
 Equation::Equation()
 {
 	int num_of_terms, exponent, coefficient;
@@ -16,7 +20,7 @@ Equation::Equation()
 	for (int i = 0; i < num_of_terms; i++) {
 		std::cout << "Please Enter a coefficient " << i+1 << ": ";
 		std::cin >> coefficient;
-		std::cout << "Please Enter an exponent " << i+1 << ": ";
+		std::cout << "Please Enter a exponent " << i+1 << "(enter 0 for a constant, 1 for nx)" << ": ";
 		std::cin >> exponent;
 
 		m_equation.push_back(Component(coefficient, exponent));

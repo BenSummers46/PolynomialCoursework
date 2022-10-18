@@ -8,6 +8,7 @@ private:
 	std::vector<int> m_output_set;
 public:
 	Equation(std::vector<Component> equation);
+	Equation(std::vector<int> output_set);
 	Equation();
 	~Equation();
 
