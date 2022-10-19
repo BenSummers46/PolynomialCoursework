@@ -55,20 +55,25 @@ void OutputSet::print_set_to_file()
 {
 	std::fstream file;
 	
-	file.open("Write_output_set.txt", std::ios_base::out);
-	if (!file.is_open()) {
-		std::cout << "Error When opening the file" << std::endl;
-		return;
+	try {
+		file.open("Write_output_set.txt", std::ios_base::app | std::ios_base::in);
+		if (!file.is_open()) {
+			std::cout << "Error When opening the file" << std::endl;
+			return;
+		}
+		for (auto& item : this->m_set) {
+			if (&item == &this->m_set.back()) {
+				file << item << std::endl;
+			}
+			else {
+				file << item << ",";
+			}
+		}
+		file.close();
 	}
-	for (auto& item : this->m_set) {
-		if (&item == &this->m_set.back()) {
-			file << item << std::endl;
-		}
-		else {
-			file << item << ",";
-		}
+	catch (std::exception const& e) {
+		std::cout << "Error while writing to file!" << std::endl;
 	}
 	
-	file.close();
 	return;
 }
