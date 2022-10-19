@@ -19,6 +19,9 @@ void create_output_set_UI(Equation* equation) {
 		break;
 	case 2:
 		return;
+	default:
+		std::cout << "Invalid Entry" << std::endl;
+		return;
 	}
 	return;
 }
@@ -65,6 +68,10 @@ int main() {
 			break;
 		case 4:
 			quit = true;
+			break;
+		default:
+			std::cout << "Please enter a number between 1 and 4!" << std::endl;
+			std::cout << std::endl;
 			break;
 		}
 	}
