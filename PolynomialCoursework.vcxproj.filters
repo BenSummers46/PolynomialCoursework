@@ -49,5 +49,8 @@
     <Text Include="Sequence_B.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Sequence_C.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

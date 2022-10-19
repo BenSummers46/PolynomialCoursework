@@ -36,7 +36,7 @@ void Component::print_component()
 int Component::value(int i)
 {
 	if (this->m_exponent < 1) return m_coefficient;
-	if (this->m_coefficient < 1) return pow(i, this->m_exponent);
+	if (this->m_coefficient == 0) return pow(i, this->m_exponent);
 	
 	return (pow(i, this->m_exponent) * this->m_coefficient);
 }
@@ -57,7 +57,7 @@ std::ostream& operator<<(std::ostream& ostr, const Component& comp)
 		ostr << comp.m_coefficient << "";
 		return ostr;
 	}
-	if (comp.m_coefficient < 1) {
+	if (comp.m_coefficient == 0) {
 		ostr << "x^" << comp.m_exponent;
 		return ostr;
 	}

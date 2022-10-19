@@ -4,18 +4,32 @@
 #include "Equation.h"
 #include "OutputSet.h"
 
+void create_output_set_UI(Equation* equation) {
+	int choice, start, end;
+	std::cout << "1. Create a number sequence from given equation" << std::endl << "2. Return to menu" << std::endl << "Enter number choice: ";
+	std::cin >> choice;
+	switch (choice) {
+	case 1:
+		std::cout << "Enter the start range for number set: ";
+		std::cin >> start;
+		std::cout << "Enter the end range for number set: ";
+		std::cin >> end;
+		equation->change_output_set(equation->create_output_set(start, end));
+		equation->print_output_set();
+		break;
+	case 2:
+		return;
+	}
+	return;
+}
+
 void generate_equation() {
 	int start, end;
 	Equation equation;
 	equation.print_equation();
-	std::cout << "Enter the start range for number set: ";
-	std::cin >> start;
-	std::cout << "Enter the end range for number set: ";
-	std::cin >> end;
-	equation.change_output_set(equation.create_output_set( start, end));
-	equation.print_output_set();
-	/*OutputSet set(equation.see_output_set());
-	set.print_set_to_file();*/
+	create_output_set_UI(&equation);
+	OutputSet set(equation.see_output_set());
+	set.print_set_to_file();
 	return;
 }
 

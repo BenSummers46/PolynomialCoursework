@@ -89,13 +89,29 @@ void Equation::solve_equation()
 	int difference;
 	int constant = find_constant(this->m_output_set);
 	int exponent = find_greatest_power(this->m_output_set, 1, &difference);
-	int coefficient = (int)find_coefficient(difference, exponent);
+	int coefficient = (exponent != 1) ? (int)find_coefficient(difference, exponent) : difference;
 	this->m_equation.push_back(Component(coefficient, exponent));
 	if (constant != 0) { this->m_equation.push_back(Component(constant, 0)); }
 	Equation temp(m_equation);
-	temp.change_output_set(create_output_set(0, 20));
+	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
 	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" <<std::endl; return; }
+	std::vector<int> difference_set = difference_in_set(temp.see_output_set(), this->see_output_set());
+	exponent = find_greatest_power(difference_set, 1, &difference);
+	coefficient = (exponent != 1) ? (int)find_coefficient(difference, exponent) : difference;
+	this->m_equation.push_back(Component(coefficient, exponent));
+	temp.change_equation(this->m_equation);
+	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
+	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" << std::endl; return; }
+	
+	std::vector<int> difference_set2 = difference_in_set(temp.see_output_set(), this->see_output_set());
+	exponent = find_greatest_power(difference_set2, 1, &difference);
+	coefficient = (exponent != 1) ? (int)find_coefficient(difference, exponent) : difference;
+	this->m_equation.push_back(Component(coefficient, exponent));
+	temp.change_equation(this->m_equation);
+	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
+	if (this->see_output_set() == temp.see_output_set()) { std::cout << "Equation was correct!" << std::endl; return; }
 	std::cout << "Equation was not correct!" << std::endl;
+	this->print_equation();
 	return;
 }
 
@@ -121,6 +137,15 @@ int Equation::find_constant(std::vector<int> set)
 {
 	if (set[0] == 0) { return 0; }
 	return set[0];
+}
+
+std::vector<int> Equation::difference_in_set(std::vector<int> temp, std::vector<int> original_set)
+{
+	std::vector<int> difference;
+	for (int i = 0; i < temp.size(); i++) {
+		difference.push_back(original_set[i] - temp[i]);
+	}
+	return difference;
 }
 
 std::ostream& operator<<(std::ostream& ostr, const Equation& equation)

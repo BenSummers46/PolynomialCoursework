@@ -27,6 +27,7 @@ public:
 	int find_greatest_power(std::vector<int> list, int i, int* difference);
 	float find_coefficient(int difference, int exponent);
 	int find_constant(std::vector<int> set);
+	std::vector<int> difference_in_set(std::vector<int> temp, std::vector<int> original_set);
 	
 	template<typename T>
 	bool all_equal(std::vector<T> const &v);
