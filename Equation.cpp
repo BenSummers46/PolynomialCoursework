@@ -84,6 +84,18 @@ int Equation::factorial(int n)
 	return (n == 0 || n == 1) ? 1 : n * factorial(n - 1);
 }
 
+void Equation::find_next_items(int* difference, int* exponent, int* coefficient, Equation* temp) {
+	std::vector<int> difference_set = difference_in_set(temp->see_output_set(), this->see_output_set());
+	*exponent = find_greatest_power(difference_set, 1, difference);
+	*coefficient = (*exponent != 1) ? (int)find_coefficient(*difference, *exponent) : *difference;
+}
+
+void Equation::change_temp(Equation* temp)
+{
+	temp->change_equation(this->m_equation);
+	temp->change_output_set(create_output_set(0, this->m_output_set.size() - 1));
+}
+
 void Equation::solve_equation()
 {
 	int difference;
@@ -95,21 +107,17 @@ void Equation::solve_equation()
 	Equation temp(m_equation);
 	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
 	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" <<std::endl; return; }
-	std::vector<int> difference_set = difference_in_set(temp.see_output_set(), this->see_output_set());
-	exponent = find_greatest_power(difference_set, 1, &difference);
-	coefficient = (exponent != 1) ? (int)find_coefficient(difference, exponent) : difference;
-	this->m_equation.push_back(Component(coefficient, exponent));
-	temp.change_equation(this->m_equation);
-	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
-	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" << std::endl; return; }
 	
-	std::vector<int> difference_set2 = difference_in_set(temp.see_output_set(), this->see_output_set());
-	exponent = find_greatest_power(difference_set2, 1, &difference);
-	coefficient = (exponent != 1) ? (int)find_coefficient(difference, exponent) : difference;
+	find_next_items(&difference, &exponent, &coefficient, &temp);
 	this->m_equation.push_back(Component(coefficient, exponent));
-	temp.change_equation(this->m_equation);
-	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
+	change_temp(&temp);
+	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" << std::endl; return; }
+
+	find_next_items(&difference, &exponent, &coefficient, &temp);
+	this->m_equation.push_back(Component(coefficient, exponent));
+	change_temp(&temp);
 	if (this->see_output_set() == temp.see_output_set()) { std::cout << "Equation was correct!" << std::endl; return; }
+
 	std::cout << "Equation was not correct!" << std::endl;
 	this->print_equation();
 	return;

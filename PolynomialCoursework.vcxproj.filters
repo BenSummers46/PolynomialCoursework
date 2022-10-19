@@ -52,5 +52,11 @@
     <Text Include="Sequence_C.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Sequence_D.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Sequence_E.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

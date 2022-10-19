@@ -28,6 +28,8 @@ public:
 	float find_coefficient(int difference, int exponent);
 	int find_constant(std::vector<int> set);
 	std::vector<int> difference_in_set(std::vector<int> temp, std::vector<int> original_set);
+	void find_next_items(int* difference, int* exponent, int* coefficient, Equation* temp);
+	void change_temp(Equation* temp);
 	
 	template<typename T>
 	bool all_equal(std::vector<T> const &v);
