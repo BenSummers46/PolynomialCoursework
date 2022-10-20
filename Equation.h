@@ -13,8 +13,6 @@ public:
 	Equation();
 	~Equation();
 
-	friend std::ostream& operator<<(std::ostream& ostr, const Equation& equation);
-
 	void print_equation();
 	std::vector<int> create_output_set(int start, int end);
 	void change_output_set(std::vector<int> set);

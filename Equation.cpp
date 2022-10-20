@@ -153,16 +153,3 @@ std::vector<int> Equation::difference_in_set(std::vector<int> temp, std::vector<
 	return difference;
 }
 
-std::ostream& operator<<(std::ostream& ostr, const Equation& equation)
-{
-	/*for (auto item : equation.m_equation) {
-		if (&item == &equation.m_equation.back()) {
-			ostr << item << std::endl;
-		}
-		else {
-			ostr << item << " + ";
-		}
-	}
-	return ostr;*/
-	return ostr;
-}
