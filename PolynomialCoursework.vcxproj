@@ -138,6 +138,7 @@
     <ClInclude Include="OutputSet.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="ExpressionFilet.txt" />
     <Text Include="Sequence_A.txt" />
     <Text Include="Sequence_B.txt" />
     <Text Include="Sequence_C.txt" />

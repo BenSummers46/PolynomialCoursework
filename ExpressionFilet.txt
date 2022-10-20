@@ -1,0 +1,6 @@
+Output Set A: 3x^3
+Output Set B: 5x^4 - 9
+Output Set C: 9x^3 + 7x^2 - 2x
+Output Set D: -x^3 + 2x^2 + 5x + 7
+Output Set E: -x^3 - 3x + 114
+Output Set F: 

@@ -61,5 +61,8 @@
     <Text Include="Sequence_F.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="ExpressionFilet.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
