@@ -16,10 +16,7 @@ OutputSet::OutputSet()
 	std::cin >> filename;
 	try {
 		file.open(filename);
-		if (!file.is_open()) {
-			std::cout << "Error opening the file" << std::endl;
-			return;
-		}
+		if (!file.is_open()) { std::cout << "Error opening the file" << std::endl; return; }
 		while (getline(file, line, ',')) {
 			m_set.push_back(std::stoi(line));
 		}
@@ -57,10 +54,7 @@ void OutputSet::print_set_to_file()
 	
 	try {
 		file.open("Write_output_set.txt", std::ios_base::app | std::ios_base::in);
-		if (!file.is_open()) {
-			std::cout << "Error When opening the file" << std::endl;
-			return;
-		}
+		if (!file.is_open()) { std::cout << "Error When opening the file" << std::endl; return;}
 		for (auto& item : this->m_set) {
 			if (&item == &this->m_set.back()) {
 				file << item << std::endl;
