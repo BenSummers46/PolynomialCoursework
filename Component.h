@@ -10,8 +10,6 @@ public:
 	Component(int coefficient, int exponent);
 	~Component();
 	
-	Component operator+(Component const& compA);
-	Component operator-(Component const& compB);
 	friend std::ostream& operator<<(std::ostream& ostr, const Component& comp);
 
 	void print_component();

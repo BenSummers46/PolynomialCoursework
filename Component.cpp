@@ -18,16 +18,6 @@ Component::~Component()
 {
 }
 
-Component Component::operator+(const Component& compA)
-{
-	return Component();
-}
-
-Component Component::operator-(const Component& compB)
-{
-	return Component();
-}
-
 void Component::print_component()
 {
 	std::cout << this->m_coefficient << "x^" << this->m_exponent << std::endl;

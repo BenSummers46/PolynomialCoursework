@@ -31,7 +31,6 @@ void create_output_set_UI(Equation* equation) {
 }
 
 void generate_equation() {
-	int start, end;
 	Equation equation;
 	equation.print_equation();
 	create_output_set_UI(&equation);
