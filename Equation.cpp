@@ -18,10 +18,13 @@ Equation::Equation()
 	std::cout << "Please enter number of terms: ";
 	std::cin >> num_of_terms;
 	for (int i = 0; i < num_of_terms; i++) {
-		std::cout << "Please Enter a coefficient " << i+1 << ": ";
-		std::cin >> coefficient;
-		std::cout << "Please Enter a exponent " << i+1 << "(enter 0 for a constant, 1 for nx)" << ": ";
-		std::cin >> exponent;
+		do {
+			std::cout << "No coefficients > 9; exponents > 4; constants > 1000" << std::endl;
+			std::cout << "Please Enter a coefficient " << i + 1 << ": ";
+			std::cin >> coefficient;
+			std::cout << "Please Enter a exponent " << i + 1 << "(enter 0 for a constant, 1 for nx)" << ": ";
+			std::cin >> exponent;
+		} while (exponent > 4 || (coefficient > 9 && exponent > 0)|| (exponent == 0 && coefficient > 1000));
 
 		m_equation.push_back(Component(coefficient, exponent));
 	}
@@ -96,9 +99,9 @@ void Equation::change_temp(Equation* temp)
 	temp->change_output_set(create_output_set(0, this->m_output_set.size() - 1));
 }
 
-void Equation::solve_equation()
-{
+void Equation::solve_equation() {
 	int difference;
+	int loop = 0;
 	int constant = find_constant(this->m_output_set);
 	int exponent = find_greatest_power(this->m_output_set, 1, &difference);
 	int coefficient = (exponent != 1) ? (int)find_coefficient(difference, exponent) : difference;
@@ -106,20 +109,14 @@ void Equation::solve_equation()
 	if (constant != 0) { this->m_equation.push_back(Component(constant, 0)); }
 	Equation temp(m_equation);
 	temp.change_output_set(create_output_set(0, this->m_output_set.size()-1));
-	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" <<std::endl; return; }
-	
-	find_next_items(&difference, &exponent, &coefficient, &temp);
-	this->m_equation.push_back(Component(coefficient, exponent));
-	change_temp(&temp);
-	if (this->see_output_set() == temp.see_output_set()) { std::cout<< "Equation was correct!" << std::endl; return; }
-
-	find_next_items(&difference, &exponent, &coefficient, &temp);
-	this->m_equation.push_back(Component(coefficient, exponent));
-	change_temp(&temp);
-	if (this->see_output_set() == temp.see_output_set()) { std::cout << "Equation was correct!" << std::endl; return; }
-
-	std::cout << "Equation was not correct!" << std::endl;
-	this->print_equation();
+	while (this->see_output_set() != temp.see_output_set()) {
+		if (loop > 5) { std::cout << "Equation not solveable with current constraints!"; return; }
+		find_next_items(&difference, &exponent, &coefficient, &temp);
+		this->m_equation.push_back(Component(coefficient, exponent));
+		change_temp(&temp);
+		loop = loop + 1;
+	}
+	std::cout << "Equation was correct!" << std::endl;
 	return;
 }
 
