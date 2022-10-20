@@ -145,6 +145,9 @@
     <Text Include="Sequence_D.txt" />
     <Text Include="Sequence_E.txt" />
     <Text Include="Sequence_F.txt" />
+    <Text Include="Test_Set1.txt" />
+    <Text Include="Test_Set2.txt" />
+    <Text Include="Test_Set3.txt" />
     <Text Include="Write_output_set.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

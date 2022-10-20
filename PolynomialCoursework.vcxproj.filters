@@ -64,5 +64,14 @@
     <Text Include="ExpressionFilet.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Test_Set1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Test_Set2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Test_Set3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
