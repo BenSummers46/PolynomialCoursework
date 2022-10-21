@@ -4,13 +4,13 @@
 #include "Equation.h"
 #include "OutputSet.h"
 
-auto lmda = []() {
+auto options = []() {
 	std::cout << "1. Create a number sequence from given equation" << std::endl << "2. Return to menu" << std::endl << "Enter number choice: ";
 };
 
 void create_output_set_UI(Equation* equation) {
 	int choice, start, end;
-	lmda();
+	options();
 	std::cin >> choice;
 	switch (choice) {
 	case 1:
@@ -78,6 +78,5 @@ int main() {
 			break;
 		}
 	}
-
 	return 0;
 }

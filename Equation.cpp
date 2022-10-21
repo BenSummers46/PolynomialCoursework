@@ -25,7 +25,6 @@ Equation::Equation()
 			std::cout << "Please Enter a exponent " << i + 1 << "(enter 0 for a constant, 1 for nx)" << ": ";
 			std::cin >> exponent;
 		} while (exponent > 4 || (coefficient > 9 && exponent > 0)|| (exponent == 0 && coefficient > 1000));
-
 		m_equation.push_back(Component(coefficient, exponent));
 	}
 }
