@@ -56,7 +56,5 @@ void OutputSet::print_set_to_file()
 		}
 		file.close();
 	}
-	catch (std::exception const& e) { std::cout << "Error while writing to file!" << std::endl; }
-	
-	return;
+	catch (std::exception const& e) { std::cout << "Error while writing to file!" << std::endl; } return;
 }

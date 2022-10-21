@@ -15,8 +15,7 @@ Equation::Equation(std::vector<int> output_set) {
 Equation::Equation()
 {
 	int num_of_terms, exponent, coefficient;
-	std::cout << "Please enter number of terms: ";
-	std::cin >> num_of_terms;
+	std::cout << "Please enter number of terms: "; std::cin >> num_of_terms;
 	for (int i = 0; i < num_of_terms; i++) {
 		do {
 			std::cout << "No coefficients > 9; exponents > 4; constants > 1000" << std::endl;

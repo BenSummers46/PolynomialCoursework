@@ -51,7 +51,6 @@ std::ostream& operator<<(std::ostream& ostr, const Component& comp)
 		ostr << "x^" << comp.m_exponent;
 		return ostr;
 	}
-	
 	ostr << comp.m_coefficient << "x^" << comp.m_exponent;
 	return ostr;
 }
